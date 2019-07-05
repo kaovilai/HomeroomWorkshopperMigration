@@ -1,7 +1,7 @@
     /*
         replacerules.rules and replacerules.rulesets for Converting Workshopper to Homerooom
         Origin: https://github.com/kaovilai/HomeroomWorkshopperMigration/
-        tag: 0.1
+        tag: 0.1.2
     */
     "replacerules.rules": {
         "HWM - Switch Title and add Homeroom Header Template": {
@@ -52,8 +52,10 @@
             "find": "^====",
             "replace": ""
         },
-
-
+        "HWM - remove line endings": {
+            "find": " $",
+            "replace": ""
+        },
     },
     "replacerules.rulesets": {
         "HomeroomWorkshopperMigration" : {
@@ -70,6 +72,7 @@
                 "HWM - Images format change - []",
                 "HWM - Important Before Start",
                 "HWM - clean leftover ====",
+                "HWM - remove line endings",
             ]
         }
     },
