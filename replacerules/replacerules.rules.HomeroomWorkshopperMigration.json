@@ -1,0 +1,75 @@
+    /*
+        replacerules.rules and replacerules.rulesets for Converting Workshopper to Homerooom
+        Origin: https://github.com/kaovilai/HomeroomWorkshopperMigration/
+        tag: 0.1
+    */
+    "replacerules.rules": {
+        "HWM - Switch Title and add Homeroom Header Template": {
+            "find": "^= (.+)",
+            "replace": "---\nTitle: $1\nPrevPage: \nNextPage: \n---"
+        },
+        "HWM - Source format change - execute": {
+            "find": "^\\[source,bash.*,role=\"copypaste\"\\]\n----",
+            "replace": "```execute"
+        },
+        "HWM - Source format change - yaml": {
+            "find": "^\\[source,yaml.*\\]\n----",
+            "replace": "```yaml"
+        },
+        "HWM - Source format change": {
+            "find": "^----",
+            "replace": "```"
+        },
+        "HWM - Header format change ###": {
+            "find": "^=== (.+)",
+            "replace": "### $1"
+        },
+        "HWM - Header format change ## - []": {
+            "find": "^\\[.+\\]\n== (.+)",
+            "replace": "## $1"
+        },
+        "HWM - Header format change": {
+            "find": "^\\[.+\\]\n== (.+)",
+            "replace": "## $1"
+        },
+        "HWM - Bullets format change": {
+            "find": "^\\*\\*(.+)",
+            "replace": "  *$1"
+        },
+        "HWM - Images format change": {
+            "find": "^image:(.+)(\\[.*\\])",
+            "replace": "!$2(./images/$1)"
+        },
+        "HWM - Images format change - []": {
+            "find": "^\\[.+\\]\n\\.(.+)\nimage::(.+)\\[\\]",
+            "replace": "!$1(./images/$2)"
+        },
+        "HWM - Important Before Start": {
+            "find": "^\\[IMPORTANT\\]\n.Before Start\n====",
+            "replace": "## Before we start"
+        },
+        "HWM - clean leftover ====": {
+            "find": "^====",
+            "replace": ""
+        },
+
+
+    },
+    "replacerules.rulesets": {
+        "HomeroomWorkshopperMigration" : {
+            "rules": [
+                "HWM - Switch Title and add Homeroom Header Template",
+                "HWM - Source format change - execute",
+                "HWM - Source format change - yaml",
+                "HWM - Source format change",
+                "HWM - Header format change ###",
+                "HWM - Header format change ## - []",
+                "HWM - Header format change",
+                "HWM - Bullets format change",
+                "HWM - Images format change",
+                "HWM - Images format change - []",
+                "HWM - Important Before Start",
+                "HWM - clean leftover ====",
+            ]
+        }
+    },
