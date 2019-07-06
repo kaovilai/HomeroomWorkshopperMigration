@@ -1,7 +1,7 @@
     /******************************************************
     replacerules.rules and replacerules.rulesets for Converting Workshopper to Homerooom
     Origin: https://github.com/kaovilai/HomeroomWorkshopperMigration/
-    tag: 0.1.3
+    tag: 0.1.4
     *******************************************************/
     "replacerules.rules": {
         "HWM - Switch Title and add Homeroom Header Template": {
@@ -40,24 +40,36 @@
             "find": "^\\*\\*(.+)",
             "replace": "  *$1"
         },
-        "HWM - Images format change - []": {
+        "HWM - Images format change - Caption": {
             "find": "^\\[.+\\]\n\\.(.+)\nimage:{1,2}(.+)\\[\\]",
             "replace": "_$1_\n![$1](./images/$2)"
         },
+        "HWM - Images format change - []": {
+            "find": "^image:{1,2}(.+)\\[\\]",
+            "replace": "![](./images/$1)"
+        },
         "HWM - Images format change": {
-            "find": "^image:{1,2}(.+)(\\[.*\\])",
+            "find": "^image:{1,2}(.+)\\[(.*)\\]",
             "replace": "![$2](./images/$1)"
         },
-        "HWM - Important Before Start": {
-            "find": "^\\[IMPORTANT\\]\n.Before Start\n====",
-            "replace": "## 🛑 Before we start"
+        "HWM - Important Italics Header": {
+            "find": "^\\[IMPORTANT\\]\n\\.(.+)\n={2,}",
+            "replace": "🛑 *$1*\n="
+        },
+        "HWM - Important Header": {
+            "find": "^\\[IMPORTANT\\]\n={2,}",
+            "replace": "🛑 *Important*\n="
+        },
+        "HWM - Italics Header": {
+            "find": "^\\.(.+)",
+            "replace": "## $1"
         },
         "HWM - replace links": {
             "find": "link:(.+)\\[(.+)\\]",
             "replace": "[$2]($1)"
         },
-        "HWM - clean leftover ====": {
-            "find": "^====",
+        "HWM - clean trailing ====": {
+            "find": "^={3,}",
             "replace": ""
         },
         "HWM - remove line endings": {
@@ -77,11 +89,14 @@
                 "HWM - Header format change ## - []",
                 "HWM - Header format change ##",
                 "HWM - Bullets format change",
+                "HWM - Images format change - Caption",
                 "HWM - Images format change - []",
                 "HWM - Images format change",
-                "HWM - Important Before Start",
+                "HWM - Important Italics Header",
+                "HWM - Important Header",
+                "HWM - Italics Header",
                 "HWM - replace links",
-                "HWM - clean leftover ====",
+                "HWM - clean trailing ====",
                 // "HWM - remove line endings", broken
             ]
         }
