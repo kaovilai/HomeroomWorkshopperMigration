@@ -1,7 +1,7 @@
     /******************************************************
     replacerules.rules and replacerules.rulesets for Converting Workshopper to Homerooom
     Origin: https://github.com/kaovilai/HomeroomWorkshopperMigration/
-    tag: 0.1.5
+    tag: 0.1.6
     *******************************************************/
     "replacerules.rules": {
         "HWM - Switch Title and add Homeroom Header Template": {
@@ -11,6 +11,10 @@
         "HWM - Source format change - execute": {
             "find": "^\\[.*source.*,.*bash.*,.*role=\"copypaste\"\\]\n----",
             "replace": "```execute"
+        },
+        "HWM - Source format change - copypaste copypaste-warning": {
+            "find": "^\\[.*source.*,.*bash.*,.*role=\"copypaste.*copypaste-warning\"\\]\n----",
+            "replace": "⚠\n```copypaste"
         },
         "HWM - Source format change - copypaste": {
             "find": "^\\[.*source.*,.*role=\"copypaste\"\\]\n----",
@@ -86,6 +90,7 @@
             "rules": [
                 "HWM - Switch Title and add Homeroom Header Template",
                 "HWM - Source format change - execute",
+                "HWM - Source format change - copypaste copypaste-warning",
                 "HWM - Source format change - copypaste",
                 "HWM - Source format change - yaml",
                 "HWM - Source format change",
